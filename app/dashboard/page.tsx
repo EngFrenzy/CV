@@ -84,8 +84,9 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
     await new Promise((resolve) => setTimeout(resolve, 1000))
 
     if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
-      localStorage.setItem("dashboard_authenticated", "true")
-      localStorage.setItem("dashboard_login_time", Date.now().toString())
+      // Use sessionStorage instead of localStorage for better compatibility with static exports
+      sessionStorage.setItem("dashboard_authenticated", "true")
+      sessionStorage.setItem("dashboard_login_time", Date.now().toString())
       onLogin()
     } else {
       setError("Invalid username or password")
@@ -377,8 +378,9 @@ export default function Dashboard() {
   // Check authentication on component mount
   useEffect(() => {
     const checkAuth = () => {
-      const authenticated = localStorage.getItem("dashboard_authenticated")
-      const loginTime = localStorage.getItem("dashboard_login_time")
+      // Use sessionStorage instead of localStorage for better compatibility with static exports
+      const authenticated = sessionStorage.getItem("dashboard_authenticated")
+      const loginTime = sessionStorage.getItem("dashboard_login_time")
 
       if (authenticated === "true" && loginTime) {
         // Check if login is still valid (24 hours)
@@ -389,8 +391,8 @@ export default function Dashboard() {
           setIsAuthenticated(true)
         } else {
           // Clear expired session
-          localStorage.removeItem("dashboard_authenticated")
-          localStorage.removeItem("dashboard_login_time")
+          sessionStorage.removeItem("dashboard_authenticated")
+          sessionStorage.removeItem("dashboard_login_time")
         }
       }
       setIsLoading(false)
@@ -404,8 +406,8 @@ export default function Dashboard() {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem("dashboard_authenticated")
-    localStorage.removeItem("dashboard_login_time")
+    sessionStorage.removeItem("dashboard_authenticated")
+    sessionStorage.removeItem("dashboard_login_time")
     setIsAuthenticated(false)
   }
 
