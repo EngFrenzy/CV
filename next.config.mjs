@@ -10,11 +10,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // GitHub Pages uses a repo name as a base path
-  // If your repo is username.github.io, you don't need this
-  // Otherwise, set it to your repo name: /your-repo-name
-  basePath: '',
-  // Disable server-side features
+  // Set the base path to match your repository name
+  basePath: '/CV',
+  assetPrefix: '/CV/',
   trailingSlash: true,
 }
 
