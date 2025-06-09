@@ -60,7 +60,6 @@ import {
   Lock,
   Eye,
   EyeOff,
-  Camera,
   Download,
   Upload,
   RefreshCw,
@@ -72,6 +71,10 @@ import {
   Monitor,
   Tablet,
 } from "lucide-react"
+
+import { ImageUploader } from "@/components/ui/image-uploader"
+import { ImageGallery } from "@/components/ui/image-gallery"
+import { ImageStorage } from "@/lib/image-storage"
 
 // Authentication credentials
 const ADMIN_CREDENTIALS = {
@@ -1115,6 +1118,9 @@ export default function Dashboard() {
                 <TabsTrigger value="profile" className="text-xs sm:text-sm px-2 py-2">
                   Profile
                 </TabsTrigger>
+                <TabsTrigger value="images" className="text-xs sm:text-sm">
+                  Images
+                </TabsTrigger>
               </TabsList>
 
               {/* Enhanced Overview Tab with comprehensive metrics */}
@@ -2148,27 +2154,18 @@ export default function Dashboard() {
 
                         <div className="grid gap-2">
                           <Label htmlFor="project-image">Project Image</Label>
-                          <div className="flex items-center gap-4">
-                            <div className="relative">
-                              <Image
-                                src={projectForm.image || "/placeholder.svg"}
-                                alt="Project preview"
-                                width={120}
-                                height={80}
-                                className="rounded-md object-cover border"
-                              />
-                            </div>
-                            <div className="flex-1">
-                              <Input
-                                id="project-image"
-                                type="file"
-                                accept="image/*"
-                                onChange={handleProjectImageUpload}
-                                className="cursor-pointer"
-                              />
-                              <p className="text-xs text-muted-foreground mt-1">Upload a project screenshot or image</p>
-                            </div>
-                          </div>
+                          <ImageUploader
+                            currentImageId={projectForm.image.startsWith("img_") ? projectForm.image : undefined}
+                            category="project"
+                            onImageSelect={(imageId, metadata) => {
+                              setProjectForm({ ...projectForm, image: imageId })
+                            }}
+                            onImageRemove={() => {
+                              setProjectForm({ ...projectForm, image: "/placeholder.svg?height=200&width=300" })
+                            }}
+                            label="Upload Project Image"
+                            description="Upload a screenshot or image for this project"
+                          />
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -2459,7 +2456,11 @@ export default function Dashboard() {
                         <div className="lg:col-span-1">
                           <div className="aspect-video relative">
                             <Image
-                              src={project.image || "/placeholder.svg"}
+                              src={
+                                project.image.startsWith("img_")
+                                  ? ImageStorage.getImageUrl(project.image)
+                                  : project.image
+                              }
                               alt={project.title}
                               fill
                               className="object-cover"
@@ -2772,6 +2773,9 @@ export default function Dashboard() {
                     <TabsTrigger value="export" className="text-xs sm:text-sm">
                       Data
                     </TabsTrigger>
+                    <TabsTrigger value="images" className="text-xs sm:text-sm">
+                      Images
+                    </TabsTrigger>
                   </TabsList>
 
                   {/* Personal Information */}
@@ -2785,40 +2789,19 @@ export default function Dashboard() {
                       </CardHeader>
                       <CardContent className="space-y-6">
                         {/* Profile Image Section */}
-                        <div className="flex flex-col sm:flex-row items-center gap-6">
-                          <div className="relative">
-                            <Image
-                              src={profileImage || "/placeholder.svg"}
-                              alt="Profile"
-                              width={120}
-                              height={120}
-                              className="rounded-full object-cover border-4 border-primary/10"
-                            />
-                            <div className="absolute bottom-0 right-0">
-                              <label htmlFor="profile-image-upload" className="cursor-pointer">
-                                <div className="bg-primary text-primary-foreground rounded-full p-2 shadow-lg hover:bg-primary/90 transition-colors">
-                                  <Camera className="h-4 w-4" />
-                                </div>
-                                <input
-                                  id="profile-image-upload"
-                                  type="file"
-                                  accept="image/*"
-                                  onChange={handleImageUpload}
-                                  className="hidden"
-                                />
-                              </label>
-                            </div>
-                          </div>
-                          <div className="text-center sm:text-left space-y-2">
-                            <h3 className="text-lg font-semibold">Profile Picture</h3>
-                            <p className="text-sm text-muted-foreground">
-                              Click the camera icon to upload a new profile picture
-                            </p>
-                            <p className="text-xs text-muted-foreground">
-                              Recommended: Square image, at least 300x300px, max 5MB
-                            </p>
-                          </div>
-                        </div>
+                        <ImageUploader
+                          currentImageId={profileImage.startsWith("img_") ? profileImage : undefined}
+                          category="profile"
+                          onImageSelect={(imageId, metadata) => {
+                            setProfileImage(imageId)
+                          }}
+                          onImageRemove={() => {
+                            setProfileImage("/placeholder.svg?height=150&width=150")
+                          }}
+                          label="Update Profile Picture"
+                          description="Upload your profile photo"
+                          showPreview={true}
+                        />
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div className="grid gap-2">
@@ -3210,6 +3193,32 @@ export default function Dashboard() {
                               <p className="font-medium">{bugs.length}</p>
                             </div>
                           </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+
+                  <TabsContent value="images" className="space-y-6 mt-6">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="text-base sm:text-lg">Image Management</CardTitle>
+                        <CardDescription className="text-sm">
+                          Upload and manage all images used in your portfolio
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-6">
+                          <ImageUploader
+                            category="general"
+                            onImageSelect={(imageId, metadata) => {
+                              // Handle new image upload
+                              console.log("New image uploaded:", metadata)
+                            }}
+                            label="Upload New Image"
+                            description="Upload images for projects, certifications, or general use"
+                          />
+
+                          <ImageGallery selectable={false} category="all" />
                         </div>
                       </CardContent>
                     </Card>
