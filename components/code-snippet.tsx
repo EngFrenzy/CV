@@ -30,24 +30,28 @@ export default function CodeSnippet({
 
   return (
     <div className={cn("relative rounded-md overflow-hidden bg-muted", className)}>
-      <div className="flex items-center justify-between px-4 py-2 bg-muted/50 border-b">
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2 bg-muted/50 border-b">
         <div className="text-xs font-mono text-muted-foreground">{language}</div>
-        <Button variant="ghost" size="icon" className="h-8 w-8" onClick={copyToClipboard}>
-          {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+        <Button variant="ghost" size="icon" className="h-6 w-6 sm:h-8 sm:w-8" onClick={copyToClipboard}>
+          {copied ? <Check className="h-3 w-3 sm:h-4 sm:w-4" /> : <Copy className="h-3 w-3 sm:h-4 sm:w-4" />}
         </Button>
       </div>
-      <pre className="p-4 overflow-x-auto">
-        <code className="text-sm font-mono">
-          {lines.map((line, i) => (
-            <div key={i} className="table-row">
-              {showLineNumbers && (
-                <span className="table-cell text-right pr-4 select-none text-muted-foreground">{i + 1}</span>
-              )}
-              <span className="table-cell">{line}</span>
-            </div>
-          ))}
-        </code>
-      </pre>
+      <div className="overflow-x-auto">
+        <pre className="p-3 sm:p-4">
+          <code className="text-xs sm:text-sm font-mono">
+            {lines.map((line, i) => (
+              <div key={i} className="table-row">
+                {showLineNumbers && (
+                  <span className="table-cell text-right pr-2 sm:pr-4 select-none text-muted-foreground min-w-[2rem]">
+                    {i + 1}
+                  </span>
+                )}
+                <span className="table-cell whitespace-pre">{line}</span>
+              </div>
+            ))}
+          </code>
+        </pre>
+      </div>
     </div>
   )
 }

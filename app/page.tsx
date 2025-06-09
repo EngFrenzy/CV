@@ -280,30 +280,30 @@ export default function Portfolio() {
     <div className="min-h-screen bg-background">
       {/* Header with glass effect */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <div className="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-              <CheckCircle2 className="h-5 w-5" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="size-8 sm:size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
-            <h1 className="text-2xl font-bold">Ahmed Agamy</h1>
-            <Badge variant="outline" className="ml-2">
+            <h1 className="text-xl sm:text-2xl font-bold">Ahmed Agamy</h1>
+            <Badge variant="outline" className="ml-1 sm:ml-2 text-xs sm:text-sm">
               Software Test Engineer
             </Badge>
           </div>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" asChild>
+          <div className="flex items-center gap-2 sm:gap-4">
+            <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-10 sm:w-10" asChild>
               <a href="https://www.linkedin.com/in/ahmedagamy1/" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
             </Button>
-            <Button variant="ghost" size="icon" asChild>
+            <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-10 sm:w-10" asChild>
               <a href="mailto:Ahisham6448@gmail.com">
-                <Mail className="h-5 w-5" />
+                <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
             </Button>
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline" size="sm" className="text-xs sm:text-sm" asChild>
               <Link href="/dashboard">
-                <Settings className="h-4 w-4 mr-2" />
+                <Settings className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                 Dashboard
               </Link>
             </Button>
@@ -312,83 +312,85 @@ export default function Portfolio() {
       </header>
 
       {/* Hero Section with animated background */}
-      <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-background to-background">
+      <section className="relative py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-background to-background">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-80 h-80 bg-secondary/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-primary/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-5 sm:bottom-10 right-5 sm:right-10 w-56 sm:w-80 h-56 sm:h-80 bg-secondary/5 rounded-full blur-3xl"></div>
         </div>
-        <div className="container mx-auto text-center relative z-10">
-          <div className="mb-8">
+        <div className="container mx-auto text-center relative z-10 max-w-6xl">
+          <div className="mb-6 sm:mb-8">
             <div className="relative mx-auto">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary blur-md"></div>
               <Image
-                src="/placeholder.svg?height=150&width=150"
+                src="/placeholder.svg?height=120&width=120"
                 alt="Ahmed Agamy Profile"
-                width={150}
-                height={150}
-                className="rounded-full mx-auto relative"
+                width={120}
+                height={120}
+                className="rounded-full mx-auto relative sm:w-[150px] sm:h-[150px]"
               />
             </div>
           </div>
-          <h2 className="text-4xl font-bold mb-4">Software Test Engineer</h2>
-          <div className="flex items-center justify-center gap-6 mb-6 text-muted-foreground">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4">
+            Software Test Engineer
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mb-4 sm:mb-6 text-sm sm:text-base text-muted-foreground">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4" />
               <span>Alexandria, Egypt</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
-              <span>Ahisham6448@gmail.com</span>
+              <span className="break-all sm:break-normal">Ahisham6448@gmail.com</span>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
               <span>+20 109 760 4213</span>
             </div>
           </div>
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed">
             I am an experienced Software Test Engineer with expertise in manual and API testing, cross-browser/device
             testing, and a strong commitment to quality. I am ISTQB certified and passionate about delivering reliable,
             defect-free applications by collaborating closely with development teams in Agile environments.
           </p>
-          <div className="flex gap-4 justify-center">
-            <Button size="lg" className="gap-2">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Button size="lg" className="gap-2 w-full sm:w-auto">
               <CheckCircle2 className="h-4 w-4" />
               View Testing Portfolio
             </Button>
-            <Button variant="outline" size="lg" className="gap-2">
+            <Button variant="outline" size="lg" className="gap-2 w-full sm:w-auto">
               <FileText className="h-4 w-4" />
               Download CV
             </Button>
           </div>
 
           {/* Key metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-12 max-w-5xl mx-auto">
             <Card className="bg-background/50 backdrop-blur-sm border-primary/20">
-              <CardContent className="p-4 text-center">
-                <Bug className="h-8 w-8 mb-2 mx-auto text-primary" />
-                <p className="text-3xl font-bold">164+</p>
-                <p className="text-sm text-muted-foreground">Bugs Identified</p>
+              <CardContent className="p-3 sm:p-4 text-center">
+                <Bug className="h-6 w-6 sm:h-8 sm:w-8 mb-2 mx-auto text-primary" />
+                <p className="text-2xl sm:text-3xl font-bold">164+</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Bugs Identified</p>
               </CardContent>
             </Card>
             <Card className="bg-background/50 backdrop-blur-sm border-primary/20">
-              <CardContent className="p-4 text-center">
-                <Code className="h-8 w-8 mb-2 mx-auto text-primary" />
-                <p className="text-3xl font-bold">8,500+</p>
-                <p className="text-sm text-muted-foreground">Test Cases Executed</p>
+              <CardContent className="p-3 sm:p-4 text-center">
+                <Code className="h-6 w-6 sm:h-8 sm:w-8 mb-2 mx-auto text-primary" />
+                <p className="text-2xl sm:text-3xl font-bold">8,500+</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Test Cases Executed</p>
               </CardContent>
             </Card>
             <Card className="bg-background/50 backdrop-blur-sm border-primary/20">
-              <CardContent className="p-4 text-center">
-                <LineChart className="h-8 w-8 mb-2 mx-auto text-primary" />
-                <p className="text-3xl font-bold">94%</p>
-                <p className="text-sm text-muted-foreground">Defect Detection</p>
+              <CardContent className="p-3 sm:p-4 text-center">
+                <LineChart className="h-6 w-6 sm:h-8 sm:w-8 mb-2 mx-auto text-primary" />
+                <p className="text-2xl sm:text-3xl font-bold">94%</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Defect Detection</p>
               </CardContent>
             </Card>
             <Card className="bg-background/50 backdrop-blur-sm border-primary/20">
-              <CardContent className="p-4 text-center">
-                <Award className="h-8 w-8 mb-2 mx-auto text-primary" />
-                <p className="text-3xl font-bold">ISTQB</p>
-                <p className="text-sm text-muted-foreground">Certified</p>
+              <CardContent className="p-3 sm:p-4 text-center">
+                <Award className="h-6 w-6 sm:h-8 sm:w-8 mb-2 mx-auto text-primary" />
+                <p className="text-2xl sm:text-3xl font-bold">ISTQB</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">Certified</p>
               </CardContent>
             </Card>
           </div>
@@ -396,18 +398,22 @@ export default function Portfolio() {
       </section>
 
       {/* Work Experience Section */}
-      <section className="py-16 px-4 bg-muted/30">
-        <div className="container mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12">Professional Experience</h3>
-          <div className="max-w-4xl mx-auto space-y-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="container mx-auto max-w-6xl">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-12">
+            Professional Experience
+          </h3>
+          <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
             {workExperience.map((job, index) => (
               <Card key={index} className="overflow-hidden border-primary/10 bg-background/60 backdrop-blur-sm">
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-xl">{job.position}</CardTitle>
-                      <CardDescription className="text-lg font-medium text-primary">{job.company}</CardDescription>
-                      <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+                <CardHeader className="p-4 sm:p-6">
+                  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
+                    <div className="flex-1">
+                      <CardTitle className="text-lg sm:text-xl">{job.position}</CardTitle>
+                      <CardDescription className="text-base sm:text-lg font-medium text-primary">
+                        {job.company}
+                      </CardDescription>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mt-2 text-sm text-muted-foreground">
                         <div className="flex items-center gap-1">
                           <Calendar className="h-4 w-4" />
                           <span>{job.duration}</span>
@@ -420,12 +426,12 @@ export default function Portfolio() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-4 sm:p-6 pt-0">
                   <ul className="space-y-2">
                     {job.responsibilities.map((responsibility, idx) => (
                       <li key={idx} className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-primary mt-1 shrink-0" />
-                        <span className="text-sm">{responsibility}</span>
+                        <span className="text-sm sm:text-base">{responsibility}</span>
                       </li>
                     ))}
                   </ul>
@@ -437,25 +443,25 @@ export default function Portfolio() {
       </section>
 
       {/* Testing Expertise Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12">Testing Expertise</h3>
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-12">Testing Expertise</h3>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div>
-              <h4 className="text-2xl font-semibold mb-6 flex items-center">
-                <Workflow className="mr-2 h-6 w-6 text-primary" />
+              <h4 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center">
+                <Workflow className="mr-2 h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 Testing Methodologies
               </h4>
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {testingMethodologies.map((methodology) => (
-                  <div key={methodology.name} className="flex gap-4">
+                  <div key={methodology.name} className="flex gap-3 sm:gap-4">
                     <div className="mt-1">
-                      <methodology.icon className="h-6 w-6 text-primary" />
+                      <methodology.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                     </div>
                     <div>
-                      <h5 className="font-semibold">{methodology.name}</h5>
-                      <p className="text-muted-foreground">{methodology.description}</p>
+                      <h5 className="font-semibold text-sm sm:text-base">{methodology.name}</h5>
+                      <p className="text-muted-foreground text-sm sm:text-base">{methodology.description}</p>
                     </div>
                   </div>
                 ))}
@@ -463,17 +469,17 @@ export default function Portfolio() {
             </div>
 
             <div>
-              <h4 className="text-2xl font-semibold mb-6 flex items-center">
-                <BarChart3 className="mr-2 h-6 w-6 text-primary" />
+              <h4 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 flex items-center">
+                <BarChart3 className="mr-2 h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 Testing Metrics
               </h4>
               <TestingMetrics metrics={testMetrics} />
             </div>
           </div>
 
-          <div className="mt-16">
-            <h4 className="text-2xl font-semibold mb-6 text-center flex items-center justify-center">
-              <Layers className="mr-2 h-6 w-6 text-primary" />
+          <div className="mt-12 sm:mt-16">
+            <h4 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-center flex items-center justify-center">
+              <Layers className="mr-2 h-5 w-5 sm:h-6 sm:w-6 text-primary" />
               Testing Process
             </h4>
             <TestingProcess />
@@ -482,10 +488,12 @@ export default function Portfolio() {
       </section>
 
       {/* Featured Projects with metrics */}
-      <section className="py-16 px-4 bg-muted/30">
-        <div className="container mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12">Featured Testing Projects</h3>
-          <div className="grid md:grid-cols-2 gap-8">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="container mx-auto max-w-7xl">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-12">
+            Featured Testing Projects
+          </h3>
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
             {projects
               .filter((p) => p.featured)
               .map((project) => (
@@ -499,17 +507,17 @@ export default function Portfolio() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
                     <div className="absolute bottom-4 left-4">
-                      <Badge variant="secondary" className="bg-primary/20 text-primary">
+                      <Badge variant="secondary" className="bg-primary/20 text-primary text-xs sm:text-sm">
                         Featured Project
                       </Badge>
                     </div>
                   </div>
-                  <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                  <CardHeader className="p-4 sm:p-6">
+                    <CardTitle className="text-lg sm:text-xl">{project.title}</CardTitle>
+                    <CardDescription className="text-sm sm:text-base">{project.description}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-2 gap-4 mb-4">
+                  <CardContent className="p-4 sm:p-6 pt-0">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm">
                           <span>Test Coverage</span>
@@ -527,16 +535,16 @@ export default function Portfolio() {
                     </div>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="outline">
+                        <Badge key={tech} variant="outline" className="text-xs">
                           {tech}
                         </Badge>
                       ))}
                     </div>
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                       <div className="flex gap-2">
-                        <Button size="sm" asChild>
+                        <Button size="sm" className="text-xs" asChild>
                           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="h-4 w-4 mr-2" />
+                            <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                             View Project
                           </a>
                         </Button>
@@ -565,13 +573,19 @@ export default function Portfolio() {
           <h3 className="text-3xl font-bold text-center mb-12">Testing Skills & Technologies</h3>
 
           <Tabs defaultValue="Core Testing" className="w-full">
-            <TabsList className="grid grid-cols-3 md:grid-cols-7 mb-8">
-              {skillCategories.map((category) => (
-                <TabsTrigger key={category} value={category} className="text-xs">
-                  {category.replace(" ", "\n")}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            <div className="overflow-x-auto">
+              <TabsList className="grid grid-cols-3 md:grid-cols-7 mb-6 sm:mb-8 min-w-max w-full">
+                {skillCategories.map((category) => (
+                  <TabsTrigger
+                    key={category}
+                    value={category}
+                    className="text-xs sm:text-sm whitespace-nowrap px-2 sm:px-3"
+                  >
+                    {category}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
 
             {skillCategories.map((category) => (
               <TabsContent key={category} value={category} className="space-y-6">
@@ -599,24 +613,29 @@ export default function Portfolio() {
       </section>
 
       {/* Certifications Section */}
-      <section className="py-16 px-4 bg-muted/30">
-        <div className="container mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12">Certifications & Training</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="container mx-auto max-w-7xl">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-12">
+            Certifications & Training
+          </h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
             {certifications.map((cert, index) => (
               <Card key={index} className="overflow-hidden border-primary/10">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-start gap-3 sm:gap-4">
                     <div className="bg-primary/10 text-primary rounded-full p-2">
-                      <cert.icon className="h-6 w-6" />
+                      <cert.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold">{cert.name}</h4>
-                      <p className="text-sm text-muted-foreground">{cert.issuer}</p>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-sm sm:text-base truncate">{cert.name}</h4>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{cert.issuer}</p>
                       <div className="flex justify-between items-center mt-2">
                         <span className="text-xs text-muted-foreground">{cert.date}</span>
                         {cert.score && (
-                          <Badge variant="outline" className="bg-green-500/10 text-green-500 border-green-500/20">
+                          <Badge
+                            variant="outline"
+                            className="bg-green-500/10 text-green-500 border-green-500/20 text-xs"
+                          >
                             {cert.score}
                           </Badge>
                         )}
@@ -805,68 +824,68 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-4xl">
-          <h3 className="text-3xl font-bold text-center mb-12">Get In Touch</h3>
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="container mx-auto max-w-5xl">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-12">Get In Touch</h3>
           <Card>
-            <CardContent className="p-6">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-6">
+            <CardContent className="p-4 sm:p-6">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+                <div className="space-y-4 sm:space-y-6">
                   <div>
-                    <h4 className="text-lg font-semibold mb-2">Contact Information</h4>
+                    <h4 className="text-lg font-semibold mb-3 sm:mb-4">Contact Information</h4>
                     <div className="space-y-3">
                       <div className="flex items-center">
-                        <Mail className="h-5 w-5 mr-3 text-primary" />
-                        <span>Ahisham6448@gmail.com</span>
+                        <Mail className="h-4 w-4 sm:h-5 sm:w-5 mr-3 text-primary shrink-0" />
+                        <span className="text-sm sm:text-base break-all">Ahisham6448@gmail.com</span>
                       </div>
                       <div className="flex items-center">
-                        <Phone className="h-5 w-5 mr-3 text-primary" />
-                        <span>+20 109 760 4213</span>
+                        <Phone className="h-4 w-4 sm:h-5 sm:w-5 mr-3 text-primary shrink-0" />
+                        <span className="text-sm sm:text-base">+20 109 760 4213</span>
                       </div>
                       <div className="flex items-center">
-                        <Linkedin className="h-5 w-5 mr-3 text-primary" />
+                        <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 mr-3 text-primary shrink-0" />
                         <a
                           href="https://www.linkedin.com/in/ahmedagamy1/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-primary hover:underline"
+                          className="text-primary hover:underline text-sm sm:text-base break-all"
                         >
                           linkedin.com/in/ahmedagamy1
                         </a>
                       </div>
                       <div className="flex items-center">
-                        <MapPin className="h-5 w-5 mr-3 text-primary" />
-                        <span>Alexandria, Egypt</span>
+                        <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mr-3 text-primary shrink-0" />
+                        <span className="text-sm sm:text-base">Alexandria, Egypt</span>
                       </div>
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-semibold mb-2">Testing Services</h4>
+                    <h4 className="text-lg font-semibold mb-3 sm:mb-4">Testing Services</h4>
                     <ul className="space-y-2">
-                      <li className="flex items-center">
-                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
-                        <span>Manual & Functional Testing</span>
+                      <li className="flex items-start">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary mt-0.5 shrink-0" />
+                        <span className="text-sm sm:text-base">Manual & Functional Testing</span>
                       </li>
-                      <li className="flex items-center">
-                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
-                        <span>API Testing & Integration Testing</span>
+                      <li className="flex items-start">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary mt-0.5 shrink-0" />
+                        <span className="text-sm sm:text-base">API Testing & Integration Testing</span>
                       </li>
-                      <li className="flex items-center">
-                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
-                        <span>Cross-Browser & Cross-Device Testing</span>
+                      <li className="flex items-start">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary mt-0.5 shrink-0" />
+                        <span className="text-sm sm:text-base">Cross-Browser & Cross-Device Testing</span>
                       </li>
-                      <li className="flex items-center">
-                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
-                        <span>WordPress & CMS Testing</span>
+                      <li className="flex items-start">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary mt-0.5 shrink-0" />
+                        <span className="text-sm sm:text-base">WordPress & CMS Testing</span>
                       </li>
-                      <li className="flex items-center">
-                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
-                        <span>Payment Gateway Testing (Stripe)</span>
+                      <li className="flex items-start">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary mt-0.5 shrink-0" />
+                        <span className="text-sm sm:text-base">Payment Gateway Testing (Stripe)</span>
                       </li>
-                      <li className="flex items-center">
-                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
-                        <span>Agile QA Process Implementation</span>
+                      <li className="flex items-start">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary mt-0.5 shrink-0" />
+                        <span className="text-sm sm:text-base">Agile QA Process Implementation</span>
                       </li>
                     </ul>
                   </div>
@@ -874,26 +893,34 @@ export default function Portfolio() {
 
                 <div className="space-y-4">
                   <div className="grid gap-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Name</Label>
-                        <Input id="name" placeholder="Your name" />
+                        <Label htmlFor="name" className="text-sm sm:text-base">
+                          Name
+                        </Label>
+                        <Input id="name" placeholder="Your name" className="text-sm sm:text-base" />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input id="email" type="email" placeholder="Your email" />
+                        <Label htmlFor="email" className="text-sm sm:text-base">
+                          Email
+                        </Label>
+                        <Input id="email" type="email" placeholder="Your email" className="text-sm sm:text-base" />
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="subject">Subject</Label>
-                      <Input id="subject" placeholder="How can I help you?" />
+                      <Label htmlFor="subject" className="text-sm sm:text-base">
+                        Subject
+                      </Label>
+                      <Input id="subject" placeholder="How can I help you?" className="text-sm sm:text-base" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea id="message" placeholder="Your message" rows={4} />
+                      <Label htmlFor="message" className="text-sm sm:text-base">
+                        Message
+                      </Label>
+                      <Textarea id="message" placeholder="Your message" rows={4} className="text-sm sm:text-base" />
                     </div>
                   </div>
-                  <Button className="w-full">Send Message</Button>
+                  <Button className="w-full text-sm sm:text-base">Send Message</Button>
                 </div>
               </div>
             </CardContent>
@@ -902,9 +929,11 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t py-8 px-4">
+      <footer className="border-t py-6 sm:py-8 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto text-center">
-          <p className="text-muted-foreground">© 2024 Ahmed Agamy. Software Test Engineer - Alexandria, Egypt.</p>
+          <p className="text-muted-foreground text-sm sm:text-base">
+            © 2024 Ahmed Agamy. Software Test Engineer - Alexandria, Egypt.
+          </p>
         </div>
       </footer>
     </div>

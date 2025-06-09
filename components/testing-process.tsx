@@ -103,25 +103,25 @@ export default function TestingProcess() {
   const [activePhase, setActivePhase] = useState("requirements")
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap justify-center gap-2 md:gap-4">
+    <div className="space-y-4 sm:space-y-6">
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4">
         {testingProcess.map((phase) => (
           <Card
             key={phase.id}
-            className={`cursor-pointer transition-all w-[140px] md:w-[160px] ${
+            className={`cursor-pointer transition-all w-[120px] sm:w-[140px] lg:w-[160px] ${
               activePhase === phase.id ? "border-primary bg-primary/5" : "hover:border-primary/50"
             }`}
             onClick={() => setActivePhase(phase.id)}
           >
-            <CardContent className="p-4 text-center">
+            <CardContent className="p-3 sm:p-4 text-center">
               <div
-                className={`mx-auto rounded-full p-2 size-12 flex items-center justify-center mb-2 ${
+                className={`mx-auto rounded-full p-2 size-10 sm:size-12 flex items-center justify-center mb-2 ${
                   activePhase === phase.id ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
                 }`}
               >
-                <phase.icon className="h-6 w-6" />
+                <phase.icon className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h5 className="text-sm font-medium line-clamp-2">{phase.title}</h5>
+              <h5 className="text-xs sm:text-sm font-medium line-clamp-2">{phase.title}</h5>
             </CardContent>
           </Card>
         ))}
@@ -130,32 +130,40 @@ export default function TestingProcess() {
       {testingProcess.map(
         (phase) =>
           phase.id === activePhase && (
-            <Card key={phase.id} className="mt-6 border-primary/20">
-              <CardHeader>
-                <div className="flex items-center gap-3">
-                  <div className="bg-primary/10 text-primary rounded-full p-2">
-                    <phase.icon className="h-6 w-6" />
+            <Card key={phase.id} className="mt-4 sm:mt-6 border-primary/20">
+              <CardHeader className="p-4 sm:p-6">
+                <div className="flex items-start sm:items-center gap-3">
+                  <div className="bg-primary/10 text-primary rounded-full p-2 shrink-0">
+                    <phase.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
-                  <div>
-                    <CardTitle>{phase.title}</CardTitle>
-                    <CardDescription>{phase.description}</CardDescription>
+                  <div className="min-w-0">
+                    <CardTitle className="text-lg sm:text-xl">{phase.title}</CardTitle>
+                    <CardDescription className="text-sm sm:text-base">{phase.description}</CardDescription>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4 sm:p-6 pt-0">
                 <Tabs defaultValue="activities">
-                  <TabsList className="grid grid-cols-3 mb-4">
-                    <TabsTrigger value="activities">Activities</TabsTrigger>
-                    <TabsTrigger value="deliverables">Deliverables</TabsTrigger>
-                    <TabsTrigger value="tools">Tools</TabsTrigger>
-                  </TabsList>
+                  <div className="overflow-x-auto">
+                    <TabsList className="grid grid-cols-3 mb-4 min-w-max w-full">
+                      <TabsTrigger value="activities" className="text-xs sm:text-sm">
+                        Activities
+                      </TabsTrigger>
+                      <TabsTrigger value="deliverables" className="text-xs sm:text-sm">
+                        Deliverables
+                      </TabsTrigger>
+                      <TabsTrigger value="tools" className="text-xs sm:text-sm">
+                        Tools
+                      </TabsTrigger>
+                    </TabsList>
+                  </div>
 
                   <TabsContent value="activities" className="space-y-4">
                     <ul className="space-y-2">
                       {phase.activities.map((activity, index) => (
                         <li key={index} className="flex items-start gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                          <span>{activity}</span>
+                          <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-primary mt-0.5 shrink-0" />
+                          <span className="text-sm sm:text-base">{activity}</span>
                         </li>
                       ))}
                     </ul>
@@ -164,7 +172,7 @@ export default function TestingProcess() {
                   <TabsContent value="deliverables">
                     <div className="flex flex-wrap gap-2">
                       {phase.deliverables.map((deliverable, index) => (
-                        <Badge key={index} variant="secondary" className="text-sm py-1.5">
+                        <Badge key={index} variant="secondary" className="text-xs sm:text-sm py-1 sm:py-1.5">
                           {deliverable}
                         </Badge>
                       ))}
@@ -174,7 +182,7 @@ export default function TestingProcess() {
                   <TabsContent value="tools">
                     <div className="flex flex-wrap gap-2">
                       {phase.tools.map((tool, index) => (
-                        <Badge key={index} variant="outline" className="text-sm py-1.5">
+                        <Badge key={index} variant="outline" className="text-xs sm:text-sm py-1 sm:py-1.5">
                           {tool}
                         </Badge>
                       ))}
